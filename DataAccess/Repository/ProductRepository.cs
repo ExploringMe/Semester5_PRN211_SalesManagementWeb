@@ -5,10 +5,6 @@ namespace DataAccess.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        public IEnumerable<Product> Search(Expression<Func<Product, bool>> ex)
-        {
-            return EntityDAO.Instance.context.Products.Where(ex);
-        }
         public IEnumerable<Product> GetProducts() => ProductDAO.Instance.GetProducts();
         public Product GetProductByID(int productID) => ProductDAO.Instance.GetProductByID(productID);
         public void InsertProduct(Product product) => ProductDAO.Instance.AddProduct(product);

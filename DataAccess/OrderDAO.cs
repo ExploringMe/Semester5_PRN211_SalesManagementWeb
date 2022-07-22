@@ -75,7 +75,6 @@ namespace DataAccess
             }
             return orders;
         }
-
         public void AddOrder(Order order)
         {
             try
@@ -162,6 +161,16 @@ namespace DataAccess
                 throw new Exception(ex.Message);
             }
         }
-
+        public bool CheckExistOrder(int memberID)
+        {
+            foreach (var m in FStoreDB.Members)
+            {
+                if(memberID==m.MemberId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
